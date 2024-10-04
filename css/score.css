@@ -1,0 +1,237 @@
+/* RESETS */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+}
+
+img,
+video {
+  max-width: 100%;
+  /* height: auto; */
+  display: block;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url(/starter-code/assets/fonts/Rubik-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: "Rubik Italic";
+  src: url(/starter-code/assets/fonts/Rubik-Italic-VariableFont_wght.ttf);
+}
+
+:root {
+  /* COLORS */
+  --clr-neutral-800: hsl(216, 25%, 25%);
+  --clr-neutral-600: hsl(215, 27%, 32%);
+  --clr-neutral-400: hsl(219, 13%, 44%);
+  --clr-neutral-300: hsl(216, 47%, 78%);
+  --clr-neutral-200: hsl(220, 38%, 97%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --clr-accent-600: hsl(0, 82%, 63%);
+  --clr-accent-500: hsl(277, 91%, 56%);
+  --clr-accent-400: hsl(151, 70%, 50%);
+
+  --fs-heading-large: 64px;
+  --fs-heading-medium: 36px;
+  --fs-heading-small: 28px;
+  --fs-body-medium: 12px;
+  --fs-body-small: 12px;
+
+  --line-height-normal: 100%;
+  --line-height-large: 150%;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+}
+
+/* GENERAL */
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body {
+  font-family: "Rubik", "Rubik Italic", sans-serif;
+  font-size: 16px;
+  background-color: #202020;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+}
+
+main {
+  background: url(../assets/images/pattern-background-mobile-light.svg);
+  max-width: 23.4375rem;
+  min-height: 50.75rem;
+  background-color: var(--clr-neutral-200);
+}
+.container {
+  padding-right: 1.5em;
+  padding-left: 1.4em;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.05em 0;
+}
+
+.accessibility {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.125rem;
+  font-weight: var(--fw-medium);
+
+  & svg {
+    width: 40px;
+    height: 40px;
+    padding: 0.3em;
+    background-color: #f4e7fe;
+    border-radius: 4px;
+  }
+}
+
+label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.moon-icon {
+  margin-left: 0.5em;
+}
+
+.sun-icon {
+  margin-right: 0.6em;
+}
+
+.sun-icon,
+.moon-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.sun-icon path,
+.moon-icon path {
+  fill: var(--clr-neutral-400);
+}
+
+#mode-thumb {
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  background-color: var(--clr-accent-500);
+  height: 1.2rem;
+  width: 1.95rem;
+  vertical-align: middle;
+  border-radius: 2rem;
+  transition: 0.25s linear background;
+  cursor: pointer;
+}
+
+#mode-thumb::before {
+  content: "";
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: #fff;
+  border-radius: 1.2rem;
+  position: absolute;
+  top: 0.23rem;
+  left: 0.25rem;
+  transition: 0.25s linear transform;
+  transform: translateX(0rem);
+}
+
+#mode-thumb:checked {
+  /* background: red; */
+}
+
+#mode-thumb:checked::before {
+  transform: translateX(0.7rem);
+  /* right: 1rem; */
+}
+
+#mode-thumb:focus-visible {
+  outline: 2px solid dodgerblue;
+  outline-offset: 2px;
+}
+
+#mode-thumb:focus {
+  outline-color: transparent;
+}
+
+.quiz-text {
+  font-size: 2.5rem;
+  font-weight: var(--fw-light);
+  margin-top: 0.7em;
+}
+.score-text {
+  font-size: 2.5rem;
+  font-weight: var(--fw-medium);
+}
+.score-box {
+  height: 15.125rem;
+  background-color: var(--clr-neutral-100);
+  margin-top: 2.25em;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0.2em;
+  padding-top: 2em;
+  align-items: center;
+  border-radius: 8px;
+}
+.score {
+  font-size: 5.5rem;
+  font-weight: var(--fw-medium);
+  padding-top: 0.09em;
+  padding-bottom: 0.07em;
+}
+.sub-text {
+  font-size: 1.1rem;
+  color: var(--clr-neutral-400);
+}
+
+.again-btn {
+  width: 100%;
+  border: none;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-500);
+  font-family: inherit;
+  font-size: 1.125rem;
+  font-weight: var(--fw-medium);
+  border-radius: 12px;
+  margin-top: 0.69em;
+  padding: 0.95em;
+}
